@@ -1,0 +1,27 @@
+git Branch commands:
+"Name der Branch" steht für den Namen den an dem Branch geben will. Steht es ohne Anführungszeichen da, kann man es ohne Anführungszeichen eingeben.
+
+neue Branch erstellen:
+	git branch Name der Branch (ohne Anführungszeichen)
+	git checkout -b "Name der Branch"
+
+eine Branch betreten mit:
+	git chekcout Name der Branch
+	
+Push Branch to Remote:
+	git push -u origin Name der Branch
+
+wenn man die Branches mergen möchte:
+	git checkout master
+	git pull origin master (um Branch Master auf dem neuesten Stand zu haben)
+	git merge Name der Branch
+	git push origin master (um Branch master branch auf Github zu pushen)
+	
+	
+zur Kontrolle:
+	git branch --merged (zeigt die gemergten Branches)
+	git branch -a (zeigt alle Branches die auf dem PC und auf Github existieren)
+	
+Eine Branch löschen:
+	git branch -d Name der Branch (um die Branch auf dem PC zu löschen)
+	git push origin --delete Name der Branch (um es auf Gihub zu löschen)
