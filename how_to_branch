@@ -1,8 +1,8 @@
 git Branch commands:
-"Name der Branch" steht für den Namen den an dem Branch geben will. Steht es ohne Anführungszeichen da, kann man es ohne Anführungszeichen eingeben.
+"Name der Branch" steht für den Namen den man dem Branch geben will. Steht es ohne Anführungszeichen da, kann man es ohne Anführungszeichen eingeben.
 
 neue Branch erstellen:
-	git branch Name der Branch (ohne Anführungszeichen)
+	git branch Name der Branch 
 	git checkout -b "Name der Branch"
 
 eine Branch betreten mit:
@@ -16,7 +16,12 @@ wenn man die Branches mergen möchte:
 	git pull origin master (um Branch Master auf dem neuesten Stand zu haben)
 	git merge Name der Branch
 	git push origin master (um Branch master branch auf Github zu pushen)
-	
+
+
+bei einem Merge Conflict:
+	entweder die Konfliktzeilen in der Datei manuell löschen (git status zeigt den Namen der Datei mit einem Konflikt an)
+	git mergetool (alternativer Befehl, um das es in der Git Bash zu lösen)
+		
 	
 zur Kontrolle:
 	git branch --merged (zeigt die gemergten Branches)
@@ -25,3 +30,20 @@ zur Kontrolle:
 Eine Branch löschen:
 	git branch -d Name der Branch (um die Branch auf dem PC zu löschen)
 	git push origin --delete Name der Branch (um es auf Gihub zu löschen)
+	
+Rebase:
+	git rebase master (wenn man in einem anderen Branch ist und es mit dem Master gleichsetzen will)
+	
+	Bei diesem Befehl geht git auf den gemeinsamen Vorfahren zurück, wendet die Änderungen, die dort gemacht wurden beim
+	Dokument, dass in dem Branch liegt in dem man gerade ist, an und setzt die Änderungen, die man im Branch gemacht hat 
+	oben drauf (also man hat nahher beispielsweise im Branch 1 die neueste Änderung von Master Branch und die neuesten Änderungen
+	vom Branch 1)
+	Nun kann man Branch 1 und Master Branch ohne Probleme mergen
+	Vorteil ist, dass es danach bei gitk einen linearen Verlauf hat
+	
+	wichtige Warnung für Rebase: Führen Sie keinen Rebase mit Commits durch, die außerhalb Ihres Repositorys existieren und auf welche die Arbeit anderer Personen basiert.
+	
+	Befehl bei verzweigtem Verlauf:
+		git rebase --onto master par1 par2 (wobei par 1 für Branch die von Master wegzweigt steht und par2 für Branch auf die man Master rebasen will)
+		hier wird die Master Branch auf eine Branch, die von einer Branch abzweigt, die von Master abzweigt, gerebased
+		für nähere Infos bei dieser Vorgehensweise siehe git_rebase.png
