@@ -1,0 +1,20 @@
+Tags:
+	ein tag ist ähnlich wie ein commit, speichert aber mehr Daten
+	git tag -a Name -m Nachricht"
+	git tag (zeigt tags an)
+	git push origin Name (um den tag auf Github sichtbar zu machen)
+	git tag -d Name (lösch den tag)
+	git push origin --delete Name (um den tag auf Github zu löschen)
+	git checkout name (um den tag aufzurufen (alle Dateien sind im Zustand zum Zeitpunkt des tags) (bei änderungen einer Datei unbedingt einen Branch erstellen, sonst ist sie unzugägnlich))
+	
+Dinge rückgängig machen:
+	git commit --amend (fürht den letzten commit nochmal aus)
+	git add -i (interaktives stagen, man hat dann viele möglichkeiten zb. einzelne dateien zu stagen oder unstagen)
+	
+stashing:
+	wenn man unvollendete Änderungen hat, man aber den branch wechseln will, wird es normalerweise in den master committed. Um trotzdem wechseln zu können kann man einen Stash anlegen
+	git stash (legt einen stash vom momentanen Zustand an (Achtung die es muss alles gestaged sein (git add .)))
+	git stash apply (ruft den letzten Stash auf (Vorsicht in welcher Branch man ist))
+	
+Arbeitsverzeichnis bereinigen:
+	git clean
